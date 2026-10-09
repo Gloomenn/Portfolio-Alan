@@ -19,9 +19,21 @@ siteNav.addEventListener("click", (event) => {
 document.querySelector("#year").textContent = new Date().getFullYear();
 
 const projects = [
+  
   {
-    type: "AUTOMATIZACIÓN · PYTHON",
-    title: "Documentos, sin trabajo repetido.",
+    type: "APIS · NEXT.JS",
+    title: "Generador de correos temporales.",
+    description: "Gestor de correos temporales con dominios aleatorios conectado a una API externa, que te permite manejar una bandeja con lectura de mensajes en HTML y texto, además de archivos adjuntos.",
+    technologies: ["Next.js", "Tailwind CSS", "API externa"],
+    hosting: "Publicado en Vercel - https://boreal-phi.vercel.app/",
+    visualClass: "project-visual-mail",
+    visualLabel: "BANDEJA DE ENTRADA",
+    visualTitle: "Correo desechable listo para usar.",
+    visualChip: "MENSAJE NUEVO"
+  },
+  {
+    type: "AUTOMATIZACIÓN · PYTHON · PERSONAL",
+    title: "Automatización de documentos.",
     description: "Aplicación web con Flask que consulta información mediante web scraping y automatiza la preparación de documentos Word y PDF.",
     technologies: ["Python", "Flask", "Web Scraping"],
     hosting: "Publicado en Render",
@@ -29,17 +41,6 @@ const projects = [
     visualLabel: "GENERADOR DE DOCUMENTOS",
     visualTitle: "Todo listo para generar.",
     visualChip: "03 CAMPOS COMPLETOS"
-  },
-  {
-    type: "APIS · NEXT.JS",
-    title: "Una bandeja de entrada al instante.",
-    description: "Gestor de correos temporales conectado a una API externa, con lectura de mensajes en HTML y texto, además de archivos adjuntos.",
-    technologies: ["Next.js", "Tailwind CSS", "API externa"],
-    hosting: "Publicado en Vercel",
-    visualClass: "project-visual-mail",
-    visualLabel: "BANDEJA DE ENTRADA",
-    visualTitle: "Tu código de acceso",
-    visualChip: "MENSAJE NUEVO"
   },
   
 ];
