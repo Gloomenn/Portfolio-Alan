@@ -1,0 +1,35 @@
+---
+import { experience, experience2 } from "../../data/portfolio.js";
+---
+
+<section class="screen experience-screen" id="experiencia" aria-labelledby="experience-title">
+  <div class="screen-inner experience-layout">
+    <div class="section-heading experience-heading">
+      <div>
+        <p class="eyebrow">02 / EXPERIENCIA</p>
+        <h2 id="experience-title">Aprender haciendo.<br /><span>Construir en equipo.</span></h2>
+      </div>
+      <p>Experiencia práctica en interfaces, lógica de servidor y herramientas internas.</p>
+    </div>
+    <article class="experience-entry">
+      <div class="experience-period">{experience.period}</div>
+      <div class="experience-main">
+        <div class="experience-title">
+          <div>
+            <p class="eyebrow">PRÁCTICAS PROFESIONALES</p>
+            <h3>{experience.role}</h3>
+          </div>
+          <span class="experience-company">{experience.company}</span>
+        </div>
+        <p class="experience-summary">{experience.summary}</p>
+        <ul class="experience-list">
+          {experience.highlights.map((highlight) => <li>{highlight}</li>)}
+        </ul>
+      </div>
+    </article>
+    
+    <div class="experience-aside">
+      <span>FRONTEND</span><i></i><span>BACKEND</span><i></i><span>MOCKUPS</span>
+    </div>
+  </div>
+</section>

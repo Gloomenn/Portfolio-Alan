@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import SectionNavigation from "../components/SectionNavigation.astro";
+import HeroSection from "../components/sections/HeroSection.astro";
+import ProjectsSection from "../components/sections/ProjectsSection.astro";
+import ExperienceSection from "../components/sections/ExperienceSection.astro";
+import AboutSection from "../components/sections/AboutSection.astro";
+import ContactSection from "../components/sections/ContactSection.astro";
+---
+
+<BaseLayout>
+  <SiteHeader />
+  <SectionNavigation />
+  <main id="contenido">
+    <HeroSection />
+    <ProjectsSection />
+    <ExperienceSection />
+    <AboutSection />
+    <ContactSection />
+  </main>
+  <script>
+    import "../scripts/portfolio.js";
+  </script>
+</BaseLayout>

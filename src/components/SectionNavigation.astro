@@ -1,0 +1,32 @@
+---
+const sections = [
+  { id: "inicio", label: "Inicio" },
+  { id: "proyectos", label: "Proyectos" },
+  { id: "experiencia", label: "Experiencia" },
+  { id: "sobre-mi", label: "Sobre mí" },
+  { id: "contacto", label: "Contacto" }
+];
+---
+
+<nav class="section-navigation" aria-label="Navegación por pantallas">
+  <button type="button" class="section-step" data-section-step="-1" aria-label="Sección anterior">
+    <span aria-hidden="true">↑</span>
+  </button>
+  <ol>
+    {sections.map((section, index) => (
+      <li>
+        <a
+          href={`#${section.id}`}
+          data-section-target={section.id}
+          aria-label={`${String(index + 1).padStart(2, "0")} ${section.label}`}
+          aria-current={index === 0 ? "location" : undefined}
+        >
+          <span>{String(index + 1).padStart(2, "0")}</span>
+        </a>
+      </li>
+    ))}
+  </ol>
+  <button type="button" class="section-step" data-section-step="1" aria-label="Sección siguiente">
+    <span aria-hidden="true">↓</span>
+  </button>
+</nav>

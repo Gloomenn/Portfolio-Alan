@@ -1,0 +1,39 @@
+---
+import { profile } from "../../data/portfolio.js";
+---
+
+<section class="screen hero-screen" id="inicio" aria-labelledby="hero-title">
+  <div class="screen-inner hero-layout">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="status-dot"></span> {profile.location}</p>
+      <h1 id="hero-title">Hola, soy<br /><span>Alan Hernández.</span></h1>
+      <p class="hero-role">{profile.role}</p>
+      <p class="hero-intro">
+        Desarrollo aplicaciones web conectando interfaces, APIs y datos. Me interesa crear experiencias
+        digitales claras, útiles y bien construidas.
+      </p>
+      <div class="hero-actions">
+        <a class="button button-accent" href="#proyectos">Explorar proyectos <span aria-hidden="true">↓</span></a>
+        <a class="text-link" href={`mailto:${profile.email}`}>Escríbeme <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="hero-links">
+        <a href={profile.github} target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+        <a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+
+    <div class="hero-art" aria-hidden="true">
+      <div class="art-orbit art-orbit-outer"></div>
+      <div class="art-orbit art-orbit-inner"></div>
+      <div class="art-cross art-cross-one"></div>
+      <div class="art-cross art-cross-two"></div>
+      <div class="art-core"><span>&lt; AH /&gt;</span><i></i></div>
+      <div class="art-label art-label-top"><span>DESARROLLO</span><b>01</b></div>
+      <div class="art-label art-label-bottom"><span>WEB · CÓDIGO · IDEAS</span><b>MX</b></div>
+      <span class="art-spark art-spark-one"></span>
+      <span class="art-spark art-spark-two"></span>
+      <span class="art-spark art-spark-three"></span>
+    </div>
+    <a class="scroll-cue" href="#proyectos"><span></span> DESLIZA PARA EXPLORAR</a>
+  </div>
+</section>

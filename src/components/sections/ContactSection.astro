@@ -1,0 +1,30 @@
+---
+import { profile } from "../../data/portfolio.js";
+---
+
+<section class="screen contact-screen" id="contacto" aria-labelledby="contact-title">
+  <div class="screen-inner contact-layout">
+    <div class="contact-copy">
+      <p class="eyebrow">04 / SIGUIENTE PASO</p>
+      <h2 id="contact-title">¿Construimos algo<br /><span>útil juntos?</span></h2>
+      <p>Estoy abierto a conversar sobre desarrollo web, proyectos y nuevas oportunidades.</p>
+      <a class="button button-accent" href={`mailto:${profile.email}`}>
+        Hablemos por correo <span aria-hidden="true">↗</span>
+      </a>
+      <div class="contact-links">
+        <a href={profile.github} target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+        <a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+        <a href={`mailto:${profile.email}`}>{profile.email}</a>
+      </div>
+    </div>
+    <div class="contact-mark" aria-hidden="true">
+      <span>AH</span><i></i><i></i><p>TIJUANA<br />32° 30' N</p>
+    </div>
+    <footer class="site-footer">
+      <a class="wordmark" href="#inicio">AH<span>.</span></a>
+      <span>Diseñado y desarrollado por Alan Hernández</span>
+      <a href="#inicio">Volver al inicio ↑</a>
+      <span>© {new Date().getFullYear()}</span>
+    </footer>
+  </div>
+</section>

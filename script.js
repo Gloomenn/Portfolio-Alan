@@ -19,30 +19,48 @@ siteNav.addEventListener("click", (event) => {
 document.querySelector("#year").textContent = new Date().getFullYear();
 
 const projects = [
-  
   {
     type: "APIS · NEXT.JS",
-    title: "Generador de correos temporales.",
-    description: "Gestor de correos temporales con dominios aleatorios conectado a una API externa, que te permite manejar una bandeja con lectura de mensajes en HTML y texto, además de archivos adjuntos.",
+    title: "Gestor de correos temporales",
+    description: "Aplicación conectada a una API externa para crear direcciones temporales y consultar mensajes en HTML o texto, incluidos sus archivos adjuntos.",
     technologies: ["Next.js", "Tailwind CSS", "API externa"],
-    hosting: "Publicado en Vercel - https://boreal-phi.vercel.app/",
+    hosting: "Aplicación publicada",
+    links: [
+      { label: "Ver demo", url: "https://boreal-phi.vercel.app/" },
+      { label: "Ver código", url: "https://example.com/reemplazar-repositorio-correo", isPlaceholder: true }
+    ],
     visualClass: "project-visual-mail",
     visualLabel: "BANDEJA DE ENTRADA",
     visualTitle: "Correo desechable listo para usar.",
     visualChip: "MENSAJE NUEVO"
   },
   {
+    type: "APLICACIÓN WEB · REACT · EXPRESS",
+    title: "Gestión para el área de Psicología",
+    description: "Aplicación web para gestionar pacientes, expedientes, usuarios administrativos y citas. Participé en el desarrollo de interfaces y funcionalidades conectadas a APIs REST.",
+    technologies: ["React", "Express.js", "APIs REST", "Git"],
+    hosting: "Proyecto institucional · sin demo pública",
+    links: [],
+    visualClass: "project-visual-docs",
+    visualLabel: "GESTIÓN DE CITAS",
+    visualTitle: "Información organizada en un solo lugar.",
+    visualChip: "PROYECTO ACADÉMICO"
+  },
+  {
     type: "AUTOMATIZACIÓN · PYTHON · PERSONAL",
-    title: "Automatización de documentos.",
+    title: "Automatización de documentos",
     description: "Aplicación web con Flask que consulta información mediante web scraping y automatiza la preparación de documentos Word y PDF.",
     technologies: ["Python", "Flask", "Web Scraping"],
-    hosting: "Publicado en Render",
+    hosting: "Demo publicada en Render",
+    links: [
+      { label: "Ver demo", url: "https://example.com/reemplazar-demo-documentos", isPlaceholder: true },
+      { label: "Ver código", url: "https://example.com/reemplazar-repositorio-documentos", isPlaceholder: true }
+    ],
     visualClass: "project-visual-docs",
     visualLabel: "GENERADOR DE DOCUMENTOS",
     visualTitle: "Todo listo para generar.",
     visualChip: "03 CAMPOS COMPLETOS"
-  },
-  
+  }
 ];
 
 const projectCards = {
@@ -78,6 +96,10 @@ function renderProjectCard(card, project, index, isActive) {
 
   const projectNumber = String(index + 1).padStart(2, "0");
   const technologies = project.technologies.map((technology) => `<li>${escapeHTML(technology)}</li>`).join("");
+  const projectLinks = project.links.map((link) => `
+    <a href="${escapeHTML(link.url)}" target="_blank" rel="noreferrer"${link.isPlaceholder ? ' class="project-link-placeholder" aria-label="' + escapeHTML(link.label) + ' (URL provisional; reemplazar antes de publicar)"' : ""}>
+      ${escapeHTML(link.label)}${link.isPlaceholder ? '<span class="project-link-note">URL provisional</span>' : '<span aria-hidden="true">↗</span>'}
+    </a>`).join("");
   card.setAttribute("aria-label", isActive ? `Proyecto ${projectNumber}: ${project.title}` : "Vista previa de proyecto");
   card.innerHTML = `
     <div class="project-card-top"><span>PROYECTO DESTACADO / ${projectNumber}</span><span aria-hidden="true">↗</span></div>
@@ -87,13 +109,17 @@ function renderProjectCard(card, project, index, isActive) {
         <h3>${escapeHTML(project.title)}</h3>
         <p>${escapeHTML(project.description)}</p>
         <ul class="tag-list" aria-label="Tecnologías">${technologies}</ul>
-        <div class="project-aside"><span class="live-mark" aria-hidden="true"></span>${escapeHTML(project.hosting)}</div>
+        <div class="project-aside">${escapeHTML(project.hosting)}</div>
+        ${projectLinks ? `<div class="project-links" aria-label="Enlaces del proyecto">${projectLinks}</div>` : ""}
       </div>
       <div class="project-visual ${project.visualClass}" aria-hidden="true">
         <div class="visual-window"><span>${escapeHTML(project.visualLabel)}</span><strong>${escapeHTML(project.visualTitle)}</strong><div class="visual-lines"><i></i><i></i><i></i></div></div>
         <span class="visual-chip">${escapeHTML(project.visualChip)}</span>
       </div>
     </div>`;
+  card.querySelectorAll("a").forEach((link) => {
+    link.tabIndex = isActive ? 0 : -1;
+  });
 }
 
 function updateProjectCarousel() {

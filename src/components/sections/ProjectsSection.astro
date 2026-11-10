@@ -1,0 +1,22 @@
+---
+import { projects } from "../../data/portfolio.js";
+import ProjectCard from "../ProjectCard.astro";
+---
+
+<section class="screen projects-screen" id="proyectos" aria-labelledby="projects-title">
+  <div class="screen-inner">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">01 / TRABAJO SELECCIONADO</p>
+        <h2 id="projects-title">Ideas que<br /><span>se vuelven útiles.</span></h2>
+      </div>
+      <p>Proyectos personales y académicos: interfaces, automatización y herramientas para necesidades concretas.</p>
+    </div>
+    <div class="projects-layout">
+      {projects.map((project, index) => <ProjectCard project={project} featured={index === 0} />)}
+    </div>
+    <p class="projects-footnote">
+      Más código en <a href="https://github.com/Gloomenn" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+    </p>
+  </div>
+</section>

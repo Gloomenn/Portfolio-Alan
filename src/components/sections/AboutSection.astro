@@ -1,0 +1,38 @@
+---
+import { technologyGroups } from "../../data/portfolio.js";
+---
+
+<section class="screen about-screen" id="sobre-mi" aria-labelledby="about-title">
+  <div class="screen-inner about-layout">
+    <div class="about-intro">
+      <p class="eyebrow">03 / SOBRE MÍ</p>
+      <h2 id="about-title">Curioso por naturaleza.<br /><span>Desarrollador por elección.</span></h2>
+      <p>
+        Egresado de Ingeniería en Desarrollo de Software y en proceso de titulación. Mi enfoque profesional
+        está en el desarrollo web, fortaleciendo mis habilidades de frontend y backend.
+      </p>
+      <div class="education-mark">
+        <span>FORMACIÓN</span>
+        <b>Ingeniería en Desarrollo de Software</b>
+        <small>CESUN Universidad · Egresado, en proceso de titulación</small>
+      </div>
+      <p class="language-note"><span>IDIOMAS</span> Español nativo · Inglés básico</p>
+    </div>
+    <div class="skills-panel">
+      <div class="skills-heading">
+        <p class="eyebrow">HERRAMIENTAS Y TECNOLOGÍAS</p>
+        <p>Con experiencia práctica y aprendizaje en distintas etapas.</p>
+      </div>
+      <div class="skills-list">
+        {technologyGroups.map((group, index) => (
+          <section class="skill-group" aria-labelledby={`skill-group-${index}`}>
+            <h3 id={`skill-group-${index}`}><span>{String(index + 1).padStart(2, "0")}</span>{group.label}</h3>
+            <ul>
+              {group.items.map((item) => <li>{item}</li>)}
+            </ul>
+          </section>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

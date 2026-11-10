@@ -1,0 +1,34 @@
+---
+const { id, title } = Astro.props;
+---
+
+<div class={`project-visual project-visual-${id}`} role="img" aria-label={`Ilustración conceptual de ${title}`}>
+  {id === "psychology" && (
+    <div class="visual-panel visual-panel-psych">
+      <div class="visual-panel-top"><span>GESTIÓN DE CITAS</span><span>•••</span></div>
+      <div class="visual-record"><i></i><b>PACIENTES</b><span>↗</span></div>
+      <div class="visual-record"><i></i><b>EXPEDIENTES</b><span>↗</span></div>
+      <div class="visual-record"><i></i><b>CITAS</b><span>↗</span></div>
+      <div class="visual-rows">
+        <i></i><i></i>
+      </div>
+    </div>
+  )}
+  {id === "automation" && (
+    <div class="visual-panel visual-panel-docs">
+      <span class="visual-overline">RECOPILACIÓN DE DATOS</span>
+      <strong>Menos tarea<br />repetitiva.</strong>
+      <div class="visual-progress"><i></i></div>
+      <div class="visual-document"><span>DOCX</span><span>PDF</span><b>PREPARAR ARCHIVOS ↗</b></div>
+    </div>
+  )}
+  {id === "mail" && (
+    <div class="visual-panel visual-panel-mail">
+      <div class="visual-panel-top"><span>BUZÓN TEMPORAL</span><b>MENSAJES</b></div>
+      <div class="visual-mail-address">DIRECCIÓN TEMPORAL <span>⧉</span></div>
+      <div class="visual-mail-row"><i></i><span><b>MENSAJE RECIBIDO</b><small>Contenido HTML · texto</small></span></div>
+      <div class="visual-mail-row muted"><i></i><span><b>ARCHIVO ADJUNTO</b><small>Vista del mensaje</small></span></div>
+    </div>
+  )}
+  <span class="visual-index" aria-hidden="true">A.H. / WEB</span>
+</div>

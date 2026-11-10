@@ -1,0 +1,28 @@
+---
+import ProjectVisual from "./ProjectVisual.astro";
+
+const { project, featured = false } = Astro.props;
+---
+
+<article class:list={["project-item", { "project-item-featured": featured }]}>
+  <ProjectVisual id={project.id} title={project.title} />
+  <div class="project-copy">
+    <p class="eyebrow">{project.number} / {project.category}</p>
+    <h3>{project.title}</h3>
+    <p class="project-description">{project.description}</p>
+    <ul class="tag-list" aria-label={`Tecnologías de ${project.title}`}>
+      {project.technologies.map((technology) => <li>{technology}</li>)}
+    </ul>
+    <div class="project-meta">
+      <span>{project.context}</span>
+      {project.demo && (
+        <a href={project.demo} target="_blank" rel="noreferrer">
+          Ver demo <span aria-hidden="true">↗</span>
+        </a>
+      )}
+    </div>
+    {project.pendingLinks?.length > 0 && (
+      <p class="project-pending">Enlaces por confirmar: {project.pendingLinks.join(" · ")}</p>
+    )}
+  </div>
+</article>
